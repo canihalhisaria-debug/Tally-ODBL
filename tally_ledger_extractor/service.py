@@ -42,6 +42,7 @@ def run_extraction(request: ExtractRequest) -> ExtractResult:
         ledger_summary=ledger_summary,
         monthly_summary=monthly_summary,
         expense_heads=expense_heads,
+        export_type=request.export_type,
     )
 
     return ExtractResult(
