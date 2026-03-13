@@ -19,7 +19,7 @@ with st.sidebar:
 
     ledger_group = st.selectbox(
         "Ledger Group",
-        ["Primary", "Current Assets", "Current Liabilities", "Indirect Expenses", "Sales Accounts"],
+        ["All", "Primary", "Current Assets", "Current Liabilities", "Indirect Expenses", "Sales Accounts"],
     )
     voucher_type = st.selectbox(
         "Voucher Type",
@@ -48,9 +48,12 @@ if extract_clicked:
             try:
                 result = run_extraction(request)
             except Exception as exc:
-                st.exception(exc)
+                st.error(str(exc))
             else:
-                st.success("Extraction complete.")
+                if result.raw_data.empty:
+                    st.warning("No vouchers found for the selected filters. Try widening date range or voucher filters.")
+                else:
+                    st.success("Extraction complete.")
                 st.subheader("Processed Data Preview")
                 st.dataframe(result.raw_data, use_container_width=True)
 

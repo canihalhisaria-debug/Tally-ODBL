@@ -9,6 +9,7 @@ from .service import run_extraction
 
 
 LEDGER_GROUP_OPTIONS = [
+    "All",
     "Primary",
     "Current Assets",
     "Current Liabilities",

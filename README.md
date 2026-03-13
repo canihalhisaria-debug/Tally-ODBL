@@ -11,7 +11,7 @@ Desktop-style Streamlit application for extracting ledger and voucher data from 
 1. **Input Module**
    - Company Name
    - Date From / Date To
-   - Ledger Group
+   - Ledger Group (including `All`)
    - Voucher Type
    - Export Type
 2. **Connection Module**
@@ -57,3 +57,9 @@ streamlit run app.py
 ```
 
 > Ensure TallyPrime ODBC server is running and DSN `TallyODBC64_9000` exists on the machine.
+
+## Recent reliability fixes
+- Better ODBC connection error when DSN/Tally service is unavailable.
+- Support for `All` ledger groups in UI and CLI.
+- Improved empty-result handling in Streamlit app with clear guidance instead of raw traceback.
+- Company-name filtering is applied when returned tables include a company column.
