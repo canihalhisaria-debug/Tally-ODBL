@@ -34,6 +34,20 @@ Desktop-style Streamlit application for extracting ledger and voucher data from 
 7. **Output**
    - One-click Excel export for accounting analysis
 
+## Run as command-line tool (Python)
+```bash
+python -m tally_ledger_extractor.cli \
+  --company-name "My Company Pvt Ltd" \
+  --date-from 2025-01-01 \
+  --date-to 2025-03-31 \
+  --ledger-group "Primary" \
+  --voucher-type "All" \
+  --export-type "Ledger + Voucher" \
+  --output reports/tally_extract.xlsx
+```
+
+This generates an Excel file directly without opening the Streamlit UI.
+
 ## Run locally
 ```bash
 python -m venv .venv
